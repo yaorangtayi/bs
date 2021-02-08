@@ -51,10 +51,10 @@ TELNETCONSOLE_ENABLED = False
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
-DOWNLOADER_MIDDLEWARES = {
-    #'scrapy_project.middlewares.ScrapyProjectDownloaderMiddleware': 543,RandomIPSpiderMiddleware
-    'scrapy_project.middlewares.RandomIPSpiderMiddleware': 543,
-}
+#DOWNLOADER_MIDDLEWARES = {
+#    #'scrapy_project.middlewares.ScrapyProjectDownloaderMiddleware': 543,RandomIPSpiderMiddleware
+#    'scrapy_project.middlewares.RandomIPSpiderMiddleware': 543,
+#}
 
 # Enable or disable extensions
 # See https://docs.scrapy.org/en/latest/topics/extensions.html
@@ -90,13 +90,13 @@ AUTOTHROTTLE_TARGET_CONCURRENCY = 1
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 
 #日志设置
-
+'''
 import datetime
 Today=datetime.datetime.now()#取得现在的时间
 Log_file_path='scrapy_{}_{}_{}.log'.format(Today.year,Today.month,Today.day)#以时间为文件名
-LOG_LEVEL="WARNING"#级别，则高于或者等于该等级的信息就能输出到我的日志中，低于该级别的信息则输出不到我的日志信息中
+LOG_LEVEL="INFO"#级别，则高于或者等于该等级的信息就能输出到我的日志中，低于该级别的信息则输出不到我的日志信息中
 Log_file_path='log/scrapy_{}_{}_{}.log'.format(Today.year,Today.month,Today.day) #则在目标下增加log文件夹
 LOG_FILE =Log_file_path
-
+'''
 #图片设置
 IMAGES_STORE = './file'

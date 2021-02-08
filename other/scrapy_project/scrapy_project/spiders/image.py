@@ -7,17 +7,15 @@ import random
 class ImageSpider(scrapy.Spider):
     name = 'image'
     allowed_domains = ['safebooru.org']
-    start_urls = ['https://safebooru.org/index.php?page=post&s=list&pid={}'.format(x*40) for x in range(110,310)]
+    num = 3344502
+    total = 10000
+    start_urls = ['https://safebooru.org/index.php?page=post&s=view&id={}'.format(str(x)) for x in range(num,num-total,-1)]
 
     def parse(self, response):
-        subjects = response.xpath('//span[@class="thumb"]')
-        for subject in subjects:
-            url = 'https://safebooru.org/'+subject.xpath('.//a/@href').extract()[0]
-            yield scrapy.Request(url, callback=self.parse1)
-
-    def parse1(self, response):
+        print(response.url)
         li=response.xpath('//img[@id="image"]/@src').extract()
         if li!=[]:
+            print(li[0])
             urls=[li[0]]
             paths=[]
             item=ScrapyProjectItem(image_urls=urls,image_paths=paths)
